@@ -1,5 +1,5 @@
 const assert = require('assert');
-const Task = require('../Task.js');
+const Task = require('../Tasks.js');
 
 describe('Task Tests', function(){
 

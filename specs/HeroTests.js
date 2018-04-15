@@ -1,7 +1,7 @@
 const assert = require('assert');
 const Hero = require('../Hero.js');
 const Food = require('../Food.js');
-const Task = require('../Task.js');
+const Tasks = require('../Tasks.js');
 
 describe('Hero Tests', function(){
 
@@ -16,9 +16,9 @@ describe('Hero Tests', function(){
 
   beforeEach('Setup', function(){
 
-    task = new Task(1, 4, 25, true);
-    task1 = new Task(5, 2, 125, false);
-    task2 = new Task(3, 3, 75, false);
+    task = new Tasks(1, 4, 25, true);
+    task1 = new Tasks(5, 2, 125, false);
+    task2 = new Tasks(3, 3, 75, false);
     tasks = [task, task1, task2];
     food = new Food('Deep-Fried Rat Balls', 10);
     food1 = new Food('Eggs & Bacon', 2);
@@ -35,6 +35,12 @@ describe('Hero Tests', function(){
     assert.deepStrictEqual(actual, tasks)
   }); //test end
 
+  it('Can say Hi', function (){
+    hero.sayHi();
+    actual = `Hi! My name is Groot`;
+    assert.deepStrictEqual(actual, `Hi! My name is Groot`)
+  }); //test end
+
   it('Ensure food replenishes health value', function(){
     hero.canEatFood(food2)
     actual = hero.health;
@@ -47,7 +53,7 @@ describe('Hero Tests', function(){
     assert.deepStrictEqual(actual, 115)
   }); //test end
 
-  xit('can sort tasks by difficulty', function(){
+  it('can sort tasks by difficulty', function(){
     const actual = [
       task,
       task2,
