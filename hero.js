@@ -20,40 +20,30 @@ Hero.prototype.canEatFood = function(food){
   };
 };
 
-// Hero.prototype.createMapofTasks = function(tasks){
-//   return this.tasks.map((tasklist) => {
-//     this.canSortTaskByDifficulty(tasklist);
-//   });
-// };
-//
-// Hero.prototype.canSortTaskByDifficulty = function () {
-//   tasks.difficulty_level.sort(function(a, b){
-//     return a - b;
-//   });
-// };
 
-Hero.prototype.canSortTaskByDifficulty = function () {
-
-  var byDifficulty = this.tasks.slice(0);
-  byDifficulty.sort(function(a, b){
+Hero.prototype.canSortTaskByLowestDifficulty = function () {
+  this.tasks.sort(function(a, b){
     return a.difficulty_level - b.difficulty_level;
   });
 };
 
-//     let difficultyArray = [];
-//     this.tasks.map((task) => {
-//       difficultyArray.push(task.difficulty_level);
-//     });
-//
-//     difficultyArray.sort(function (a, b){
-//     return a.difficulty_level - b.difficulty_level
-//   });
-//
-// };
-//
-// Hero.prototype.canSortTaskByUrgency = function(){
-//
-// };
+Hero.prototype.canSortTaskByHighestDifficulty = function () {
+  this.tasks.sort(function(a, b){
+    return b.difficulty_level - a.difficulty_level;
+  });
+};
+
+Hero.prototype.canSortTaskByMostUrgency = function(){
+  this.tasks.sort(function(a, b){
+    return b.urgency_level - a.urgency_level;
+  });
+};
+
+Hero.prototype.canSortTaskByLeastUrgency = function(){
+  this.tasks.sort(function(a, b){
+    return a.urgency_level - b.urgency_level;
+  });
+};
 
 Hero.prototype.canCompleteTasks = function(task){
   if (task.completed === true)

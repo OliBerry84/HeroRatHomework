@@ -53,22 +53,44 @@ describe('Hero Tests', function(){
     assert.deepStrictEqual(actual, 115)
   }); //test end
 
-  it('can sort tasks by difficulty', function(){
+  it('can sort tasks by lowest difficulty', function(){
+    hero.canSortTaskByLowestDifficulty();
     const actual = [
       task,
       task2,
       task1
     ]
-    assert.deepStrictEqual( actual, hero.canSortTaskByDifficulty())
-  }) // test end
+    assert.deepStrictEqual(actual, hero.tasks)
+  });
 
-  xit('can sort tasks by urgency', function(){
+  it('can sort tasks by highest difficulty', function(){
+    hero.canSortTaskByHighestDifficulty()
     const actual = [
       task1,
       task2,
       task
     ]
-    assert.deepStrictEqual( actual, hero.canSortTaskByUrgency())
+    assert.deepStrictEqual( actual, hero.tasks)
+  }) // test end
+
+  it('can sort tasks by most urgency', function(){
+    hero.canSortTaskByMostUrgency()
+    const actual = [
+      task,
+      task2,
+      task1
+    ]
+    assert.deepStrictEqual( actual, hero.tasks)
+  }) // test end
+
+  it('can sort tasks by least urgency', function(){
+    hero.canSortTaskByLeastUrgency()
+    const actual = [
+      task1,
+      task2,
+      task
+    ]
+    assert.deepStrictEqual( actual, hero.tasks)
   }) // test end
 
   it('can mark completed/incomplete tasks', function(){
